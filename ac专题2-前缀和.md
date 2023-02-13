@@ -49,6 +49,8 @@
 
 ### 解答
 
+前缀和从1开始容易处理
+
 ```jav
 import java.util.*;
 public class Main{
