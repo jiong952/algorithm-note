@@ -595,3 +595,60 @@ public class Main{
 
 - array：要复制的数组
 - 方法返回一个copy数组
+
+
+
+# 树和图的dfs
+
+邻接表建图
+
+```java
+import java.util.*;
+public class Main{
+    // 用邻接表建图
+    static Scanner sc = new Scanner(System.in);
+    static int N = 100010;
+    static int[] h = new int[N], e = new int[2*N], ne = new int[2*N];
+    static int idx = 0;
+    static boolean[] st = new boolean[N];
+    public static void add(int a, int b){
+        e[idx] = b; ne[idx] = h[a]; h[a] = idx++;
+    }
+    // 使用boolean[]数组
+    public static void dfs(int u){
+        st[u] = true;
+        for(int i = h[u]; i != -1; i = ne[i]){
+            int j = e[i];
+            if(!st[u]) dfs(j);
+        }
+    }
+    //不使用
+    public static void dfs(int u, int father){
+        for(int i = h[u]; i != -1; i = ne[i]){
+            int j = e[i];
+            if(j != father) dfs(j);
+        }
+    }
+    public static void main(String[] args){
+        int n = sc.nextInt();
+        Arrays.fill(h,-1);
+        for(int i = 0; i < n - 1; i++){
+            int a = sc.nextInt(); 
+            int b = sc.nextInt();
+            add(a,b);
+            add(b,a);
+        }
+        dfs(1);
+        dfs(1,)
+    }
+}
+```
+
+
+
+
+
+
+
+
+
